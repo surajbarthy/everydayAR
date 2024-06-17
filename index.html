@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR.js Example</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam;">
+      <!-- Define the first image target -->
+      <a-marker preset="custom" type="pattern" url="https://github.com/surajbarthy/everydayAR/blob/c2831c783880da63f658980c4af884fbe59d6010/pattern-2016-08-30_12-55-14_UTC.patt">
+        <a-entity id="link1" position="0 0 0" visible="false"></a-entity>
+      </a-marker>
+    
+      
+      <!-- AR.js camera -->
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+      // Add event listeners to trigger URLs
+      document.querySelector('#link1').addEventListener('markerFound', function () {
+        window.open('https://www.instagram.com/surajbarthy/p/C8DseWwRIpN/', '_blank');
+      });
+    </script>
+  </body>
+</html>
